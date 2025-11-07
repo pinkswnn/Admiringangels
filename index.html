@@ -231,44 +231,13 @@
       align-items: center;
     }
 
-    .image-frame {
-      position: relative;
-      border-radius: 32px;
-      padding: 10px;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.9), rgba(227,193,209,0.65));
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-      overflow: hidden;
-    }
-
-    .image-frame::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.95);
-      pointer-events: none;
-      box-shadow: 0 0 40px rgba(255,255,255,0.65);
-    }
-
-    .image-glow-ring {
-      position: absolute;
-      inset: -80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.95), rgba(199,161,211,0.1));
-      opacity: 0.78;
-      mix-blend-mode: screen;
-      filter: blur(8px);
-      pointer-events: none;
-    }
-
-    .hero-image img {
+    .hero-photo {
       display: block;
       max-width: 320px;
       height: auto;
       border-radius: 24px;
       object-fit: cover;
-      position: relative;
-      z-index: 1;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.32);
     }
 
     /* Footer */
@@ -303,6 +272,7 @@
       border-bottom-color: rgba(100,72,84,0.9);
     }
 
+    /* Animations */
     @keyframes slideDown {
       from { transform: translateY(-50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -333,16 +303,47 @@
       to { transform: translateY(0) scale(1); opacity: 1; }
     }
 
+    /* Responsive */
     @media (max-width: 960px) {
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 32px;
       }
+
+      /* Put Angel's photo ABOVE the text on mobile */
+      .hero-image {
+        order: -1;
+      }
+
       .hero-copy {
         text-align: center;
       }
+
       .cta-row {
         justify-content: center;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .top-bar {
+        flex-direction: row;
+      }
+
+      .logo-area img {
+        height: 90px;
+      }
+
+      .top-tagline {
+        font-size: 9px;
+        letter-spacing: 0.2em;
+      }
+
+      .headline {
+        font-size: 30px;
+      }
+
+      .cta-button {
+        width: 100%;
       }
     }
   </style>
@@ -361,17 +362,23 @@
       <div class="orb orb-right"></div>
 
       <section class="hero-inner">
+        <!-- Image first on desktop grid’s right, but moves above on mobile via CSS -->
+        <div class="hero-image">
+          <img src="angel-photo.png" alt="Admiring Angels" class="hero-photo">
+        </div>
+
         <div class="hero-copy">
           <div class="eyebrow">Website Coming Soon</div>
           <h1 class="headline">
-            Professional support for women<br>
+            A safe space for women<br>
             <span class="light">rebuilding what’s next.</span>
           </h1>
           <div class="support-line">
-            CONFIDENTIAL · PROFESSIONAL · WOMEN’S SUPPORT
+            CONFIDENTIAL · COMPASSIONATE · WOMEN’S SUPPORT
           </div>
           <p class="subtext">
-            Admiring Angels provides guidance and resources for women ready to move forward with privacy, dignity, and renewed confidence.  
+            Admiring Angels provides guidance and resources for women ready to move forward
+            with privacy, dignity, and renewed confidence.  
             A space created for restoration, clarity, and fresh beginnings.
           </p>
           <div class="cta-row">
@@ -380,13 +387,6 @@
           </div>
           <div class="secondary-text">
             Prefer email? <a href="mailto:support@admiringangels.com">support@admiringangels.com</a>
-          </div>
-        </div>
-
-        <div class="hero-image">
-          <div class="image-frame">
-            <div class="image-glow-ring"></div>
-            <img src="angel-photo.png" alt="Admiring Angels">
           </div>
         </div>
       </section>
