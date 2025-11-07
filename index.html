@@ -1,84 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admiring Angels – Coming Soon</title>
-<style>
-  :root {
-    --bg1:#fff5fb;
-    --bg2:#f2f6ff;
-    --accent:#ff91de;
-    --text:#1c1a26;
-  }
-  html,body {
-    margin:0;
-    height:100%;
-    width:100%;
-    overflow:hidden;
-    font-family:'Poppins',sans-serif;
-    color:var(--text);
-    background:linear-gradient(160deg,var(--bg1),var(--bg2));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-  }
-  .halo {
-    position:absolute;
-    inset:0;
-    background:
-      radial-gradient(circle at 30% 40%,rgba(255,145,222,0.25),transparent 60%),
-      radial-gradient(circle at 80% 70%,rgba(190,210,255,0.3),transparent 60%);
-    animation:floatBg 8s ease-in-out infinite alternate;
-    z-index:-1;
-  }
-  @keyframes floatBg {
-    from {transform:translateY(0);}
-    to {transform:translateY(-15px);}
-  }
-  h1 {
-    font-size:2.2rem;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    margin:0 0 .3rem;
-  }
-  p {
-    font-size:1rem;
-    opacity:0.8;
-    margin:0 0 1.8rem;
-    max-width:320px;
-  }
-  button {
-    background:var(--accent);
-    color:#fff;
-    border:none;
-    border-radius:999px;
-    padding:.85rem 1.8rem;
-    font-size:.95rem;
-    font-weight:600;
-    cursor:pointer;
-    transition:transform .3s ease,box-shadow .3s ease;
-  }
-  button:hover {
-    transform:translateY(-3px);
-    box-shadow:0 8px 18px rgba(255,145,222,0.3);
-  }
-  footer {
-    position:absolute;
-    bottom:1rem;
-    font-size:.75rem;
-    opacity:.7;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIRING Angels - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: white;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .logo .admiring {
+            color: #8B7355;
+        }
+
+        .logo .angels {
+            color: #D4A5A5;
+            font-style: italic;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .tagline {
+            color: #8B7355;
+            font-size: 16px;
+            letter-spacing: 2px;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #D4A5A5 0%, #E8C4C4 50%, #F5D5D5 100%);
+            padding: 80px 50px;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .headline {
+            font-size: 72px;
+            color: #8B7355;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: normal;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .subtext {
+            color: #8B7355;
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #A8C4A8 0%, #9B8FB8 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.6s ease-out, pulse 2s ease-in-out 2s infinite;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #9B8FB8 0%, #A8C4A8 100%);
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+            animation: slideInRight 1.2s ease-out, float 3s ease-in-out 2s infinite;
+        }
+
+        .image-container img {
+            max-width: 500px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 25px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .tagline {
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 40px 25px;
+                text-align: center;
+            }
+
+            .content {
+                max-width: 100%;
+            }
+
+            .headline {
+                font-size: 48px;
+            }
+
+            .subtext {
+                font-size: 16px;
+            }
+
+            .image-container {
+                margin-top: 40px;
+                justify-content: center;
+            }
+
+            .image-container img {
+                max-width: 80%;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="halo"></div>
-<h1>Admiring Angels</h1>
-<p>Our wings are still unfolding. A soft new experience is coming soon.</p>
-<button onclick="window.location.href='mailto:support@admiringangels.com?subject=Hello%20Admiring%20Angels'">Connect With Us</button>
-<footer>© <span id="year"></span> Admiring Angels</footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+    <header class="header">
+        <div class="logo">
+            <span class="admiring">ADMIRING</span><br>
+            <span class="angels">Angels</span>
+        </div>
+        <div class="tagline">THE CHANCE TO<br>LIVE AGAIN</div>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1 class="headline">A New Chapter Is On Its Way</h1>
+            <p class="subtext">New resources and community spaces are being prepared. Check back soon.</p>
+            <a href="mailto:support@admiringangels.com" class="cta-button">CONNECT WITH US</a>
+        </div>
+        <div class="image-container">
+            <img src="angel-photo.png" alt="Angel Presley">
+        </div>
+    </section>
 </body>
 </html>
